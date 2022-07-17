@@ -96,9 +96,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "start": "webpack serve --open",
 "build": "webpack build",
 
-### Understand Some Compile Errors which generally comes in MF application --
+## Understand Some Compile Errors which generally comes in MF application --
 
-# 1. `Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation. If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.`
+### 1. `Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation. If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.`
 
 > SOLUTION -
 
@@ -117,7 +117,7 @@ Create file named > .babelrc and put below object inside that. Webpack will auto
     ]
 }
 
-# URIError: Failed to decode param '/%PUBLIC_URL%/manifest.json' & URIError: Failed to decode param '/%PUBLIC_URL%/favicon.ico'
+### URIError: Failed to decode param '/%PUBLIC_URL%/manifest.json' & URIError: Failed to decode param '/%PUBLIC_URL%/favicon.ico'
 
 > https://stackoverflow.com/questions/50824024/urierror-failed-to-decode-param-public-url-favicon-ico
 
