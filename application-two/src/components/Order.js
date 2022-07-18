@@ -1,14 +1,13 @@
 import React, { Suspense, useState } from 'react'
 const Login = React.lazy(() => import('applicationone/Login'))
 
-export default function ComponentB() {
+export default function Order() {
     const [loginData, setLoginData] = useState(null);
     const receivedDataFromLogin = (value) => {
-        console.log('value :', value);
         setLoginData(value)
     }
     return (
-        <div>ComponentB
+        <div>Order Component of application-two
             <Suspense fallback={<div>Something went wrong..</div>}>
                 <Login emitData={receivedDataFromLogin}></Login>
             </Suspense>

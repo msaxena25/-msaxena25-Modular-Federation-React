@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Suspense } from 'react';
-import ComponentB from './components/ComponentB';
+import Order from './components/Order';
 
 //import Login from 'applicationone/Login';
 
@@ -10,7 +10,7 @@ function App() {
             <h4 style={{ color: 'red' }}>Micro Front-End</h4>
             <div>Application Two is consuming Login page from Application One and also bootstrap CSS</div>
             <div style={{ marginTop: 20 }}>
-                <ComponentB></ComponentB>
+                <Order></Order>
             </div>
         </div>
     );

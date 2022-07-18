@@ -3,18 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const deps = require('./package.json').dependencies;
 const path = require('path');
 
-
-
 //  object { exposes?, filename?, library?, name?, remoteType?, remotes?, runtime?, shareScope?, shared? }
 module.exports = {
     mode: 'development',
     devServer: {
-        port: 3000,
+        port: 3000, // App-one is running on port 3000
         hot: false,
-        liveReload: true,
+        liveReload: true, // enable live reload
         open: true,
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "*", // for CORS
         },
       },
     resolve: {
@@ -36,8 +34,8 @@ module.exports = {
     },
     plugins:[
         new ModuleFederationPlugin({
-            name: 'applicationone',
-            filename: 'remoteEntry.js',
+            name: 'applicationone', // HOST app name
+            filename: 'remoteEntry.js', // remote file name
             remotes: {
 
             },
@@ -57,10 +55,6 @@ module.exports = {
                 }
             }
         }),
-        new HtmlWebpackPlugin({ template: path.resolve(__dirname, "public", "index.html"),
-        favicon: "./public/favicon.ico",
-        filename: "index.html",
-        manifest: "./public/manifest.json",
-      })
+        new HtmlWebpackPlugin({ template: path.resolve(__dirname, "public", "index.html")})
     ]
 }

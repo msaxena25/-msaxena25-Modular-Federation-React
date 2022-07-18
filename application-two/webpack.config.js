@@ -3,19 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const deps = require('./package.json').dependencies;
 const path = require('path');
 
-
-
 //  object { exposes?, filename?, library?, name?, remoteType?, remotes?, runtime?, shareScope?, shared? }
 module.exports = {
     mode: 'development',
     devServer: {
-        port: 3001,
+        port: 3001, // here post is 3001
         hot: false,
-        liveReload: true,
-        open: true,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
+        liveReload: true
       },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -37,12 +31,11 @@ module.exports = {
     plugins:[
         new ModuleFederationPlugin({
             name: 'applicationtwo',
-            filename: 'remoteEntrynew.js',
+            filename: 'remoteEntryapplicationtwo.js',
             remotes: {
-                applicationone: 'applicationone@http://localhost:3000/remoteEntry.js',
+                applicationone: 'applicationone@http://localhost:3000/remoteEntry.js', // HOST FILE path
             },
             exposes: {
-                './ComponentB': './src/components/ComponentB.js'
             },
             shared: {
                 ...deps,
@@ -53,21 +46,9 @@ module.exports = {
                 'react-dom': {
                     singleton: true,
                     requiredVersion: deps['react-dom']
-                },
-                'bootstrap' : {
-                    singleton: true,
-                    requiredVersion: deps['react-dom']
-                },
-                'react-bootstrap' : {
-                    singleton: true,
-                    requiredVersion: deps['react-dom']
                 }
             }
         }),
-        new HtmlWebpackPlugin({ template: path.resolve(__dirname, "public", "index.html"),
-        favicon: "./public/favicon.ico",
-        filename: "index.html",
-        manifest: "./public/manifest.json",
-      })
+        new HtmlWebpackPlugin({ template: path.resolve(__dirname, "public", "index.html")})
     ]
 }

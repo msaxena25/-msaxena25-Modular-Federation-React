@@ -6,7 +6,6 @@ export default function Login(props) {
     const [email, setmail] = useState('');
     const [password, setPassword] = useState('');
     const handleClick = () => {
-        console.log(email);
         props.emitData({email, password});
     }
 
